@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import Bookmark from '../../assets/images/ribbon.png'
 
-const Blog = ({blog,handleAddToBookmark}) => {
-    const {title, cover,author,posted_date,author_img,reading_time,hashtags} =blog;
+const Blog = ({blog,handleAddToBookmark,handleMarkAsRead}) => {
+    const {id,title, cover,author,posted_date,author_img,reading_time,hashtags} =blog;
     return (
         <div className='mb-20'>
             <img className='h-[450px] w-full object-cover' src={cover} alt={`cover of title ${title}`} />
@@ -28,8 +28,14 @@ const Blog = ({blog,handleAddToBookmark}) => {
                      </p>
 ))}
             </div>
-            <a className='text-blue-800 underline'  href="">Mark as read</a>
+            {/* <a onClick={handleMarkAsRead} className='text-blue-800 underline '  href="">Mark as read</a> */
+            <button onClick={()=>handleMarkAsRead(id,reading_time)} className='text-blue-800 underline '>Mark as read</button>
+            }
+            
+            <br /> <br />
+            <hr />
         </div>
+        
     );
 };
 
@@ -37,6 +43,7 @@ export default Blog;
 
 Blog.propTypes={
     blog: PropTypes.object.isRequired,
-    handleAddToBookmark: PropTypes.func.isRequired
+    handleAddToBookmark: PropTypes.func.isRequired,
+    handleMarkAsRead:PropTypes.func.isRequired
     
 }
