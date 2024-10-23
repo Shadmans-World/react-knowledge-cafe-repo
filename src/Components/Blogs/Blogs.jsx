@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Blog from "../Blog/Blog";
 
 
 const Blogs = () => {
@@ -11,8 +12,9 @@ const Blogs = () => {
     },[])
     
     return (
-        <div>
-            <h1>Data: {blogs.length}</h1>
+        <div className="md:w-2/3">
+            <h1 className="text-4xl">BLOGS: {blogs.length}</h1>
+            <Blog></Blog>
         </div>
     );
 };
